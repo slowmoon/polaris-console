@@ -81,6 +81,8 @@ import ServiceAliasPageDuck from '@src/polaris/serviceAlias/PageDuck'
 import { cacheCheckAuth } from './polaris/auth/model'
 const ServiceAlias = connectWithDuck(ServiceAliasPage, ServiceAliasPageDuck)
 
+import { convertStatic } from '@src/polaris/common/util/convertStatic'
+
 export default function root() {
   const history = useHistory()
   const [selected, setSelected] = React.useState(history.location.pathname.match(/^\/(\w+)/)?.[1])
@@ -109,7 +111,7 @@ export default function root() {
           left={
             <>
               <NavMenu.Item type='logo' style={{ width: '185px' }}>
-                <img src={'/static/img/logo-polaris.png'} alt='logo' style={{ height: '27px' }} />
+                <img src={convertStatic('/static/img/logo-polaris.png')} alt='logo' style={{ height: '27px' }} />
               </NavMenu.Item>
               <NavMenu.Item></NavMenu.Item>
             </>

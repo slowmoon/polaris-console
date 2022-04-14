@@ -28,6 +28,7 @@ import router from '@src/polaris/common/util/router'
 import BasicLayout from '@src/polaris/common/components/BaseLayout'
 import { AuthStrategy } from '../model'
 import UseableResource from '../common/UseableResource'
+import { convertStatic } from '@src/polaris/common/util/convertStatic'
 
 export enum AuthSubjectType {
   USER = 'user',
@@ -129,12 +130,20 @@ export default function AuthPage(props: DuckCmpProps<Duck>) {
               {principalType === AuthSubjectType.USER ? (
                 <img
                   style={{ verticalAlign: 'middle' }}
-                  src={isActive ? '/static/img/user-icon-active.svg' : '/static/img/user-icon.svg'}
+                  src={
+                    isActive
+                      ? convertStatic('/static/img/user-icon-active.svg')
+                      : convertStatic('/static/img/user-icon.svg')
+                  }
                 />
               ) : (
                 <img
                   style={{ verticalAlign: 'middle' }}
-                  src={isActive ? '/static/img/usergroup-icon-active.svg' : '/static/img/usergroup-icon.svg'}
+                  src={
+                    isActive
+                      ? convertStatic('/static/img/usergroup-icon-active.svg')
+                      : convertStatic('/static/img/usergroup-icon.svg')
+                  }
                 />
               )}
             </Bubble>

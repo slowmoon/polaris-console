@@ -38,9 +38,18 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.30.0",
+    "@typescript-eslint/parser": "^4.30.0",
     "axios": "^0.21.1",
+    "babel-polyfill": "^6.26.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.17.0",
     "json-format": "^1.0.1",
     "lodash.merge": "^4.6.2",
+    "prettier": "^1.19.1",
     "pretty-format": "^27.0.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -52,15 +61,7 @@
     "redux-saga": "^0.16.0",
     "reselect": "^4.0.0",
     "saga-duck": "^3.4.2",
-    "tea-component": "^2.6.17",
     "tea-chart": "^2.4.2",
-    "cross-env": "^7.0.3",
-    "@typescript-eslint/eslint-plugin": "^4.30.0",
-    "@typescript-eslint/parser": "^4.30.0",
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^6.9.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.17.0",
-    "prettier": "^1.19.1"
+    "tea-component": "^2.6.17"
   }
 }

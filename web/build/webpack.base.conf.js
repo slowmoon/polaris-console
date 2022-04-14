@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 const isDev = process.env.NODE_ENV !== "production";
-
+const basePath = process.env.BASE_PATH || "";
 module.exports = {
   entry: {
     main: "./src/index.tsx",
@@ -68,14 +68,16 @@ module.exports = {
       filename: "index.html",
       template: "./src/assets/index.html",
       minify: !isDev,
-      publicPath: "/",
+      publicPath: basePath ? basePath : "/",
+      favicon: "./src/assets/img/favicon.ico",
     }),
     new MiniCssExtractPlugin({
-      filename: `./static/css/polaris-console.css`,
+      filename: `static/css/polaris-console.css`,
     }),
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
       "process.env.BUILD_TYPE": JSON.stringify(process.env.BUILD_TYPE),
+      "process.env.BASE_PATH": JSON.stringify(process.env.BASE_PATH || ""),
     }),
   ],
 };

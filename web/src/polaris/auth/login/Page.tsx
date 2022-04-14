@@ -3,23 +3,11 @@ import { purify, DuckCmpProps } from 'saga-duck'
 
 import Duck from './PageDuck'
 import insertCSS from '@src/polaris/common/helpers/insertCSS'
-import {
-  Row,
-  Col,
-  Card,
-  H2,
-  Text,
-  Form,
-  Button,
-  Input as TeaInput,
-  ExternalLink,
-  FormItem,
-  Copy,
-  FormText,
-} from 'tea-component'
+import { Row, Col, Card, H2, Text, Form, Button, Input as TeaInput, Copy } from 'tea-component'
 import FormField from '@src/polaris/common/duckComponents/form/Field'
 import Input from '@src/polaris/common/duckComponents/form/Input'
 import buildConfig from '@src/buildConfig'
+import { convertStatic } from '@src/polaris/common/util/convertStatic'
 insertCSS(
   'login',
   `.login-background{
@@ -33,13 +21,11 @@ export default purify(function(props: DuckCmpProps<Duck>) {
   const { duck, store, dispatch } = props
   const { ducks, creators } = duck
   const { userName, password } = ducks.form.getAPI(store, dispatch).getFields(['userName', 'password'])
+  const backgroundUrl = convertStatic('/static/img/login-background.png')
   return (
-    <div
-      style={{ background: 'url(/static/img/login-background.png)', backgroundSize: '100% 100%' }}
-      className={'login-background'}
-    >
+    <div style={{ background: `url(${backgroundUrl})`, backgroundSize: '100% 100%' }} className={'login-background'}>
       <img
-        src={'/static/img/logo-polaris.png'}
+        src={convertStatic('/static/img/logo-polaris.png')}
         style={{ width: '200px', position: 'absolute', top: 0, left: 0, padding: '15px' }}
       />
       <Row style={{ margin: '30vh 0 30vh 0', height: '40vh' }}>
