@@ -126,8 +126,7 @@ export default function Page(props: DuckCmpProps<Duck>) {
                   handlers.setExpandedIds(expandedIds)
                 }}
                 fullExpandable
-                height={600}
-                style={{ width: '500px' }}
+                style={{ width: '500px', height: '100%', overflow: 'auto' }}
                 // onSelect={v => {
                 //   handlers.select(v)
                 // }}
